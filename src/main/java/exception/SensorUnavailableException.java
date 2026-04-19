@@ -1,0 +1,1 @@
+// SensorUnavailableException.java
