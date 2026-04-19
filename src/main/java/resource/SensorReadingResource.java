@@ -1,1 +1,0 @@
-// SensorReadingResource.java
