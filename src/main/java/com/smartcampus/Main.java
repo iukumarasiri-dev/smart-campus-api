@@ -17,6 +17,7 @@ public class Main {
 
         System.out.println("Smart Campus API running at " + BASE_URI);
         System.out.println("Press CTRL+C to stop...");
+        System.out.println("");
 
         Thread.currentThread().join();
     }
