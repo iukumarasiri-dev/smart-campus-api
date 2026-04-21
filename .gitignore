@@ -10,3 +10,11 @@ dependency-reduced-pom.xml
 # OS files
 .DS_Store
 Thumbs.db
+
+target/
+*.class
+*.jar
+.idea/
+nbproject/
+build/
+dist/
