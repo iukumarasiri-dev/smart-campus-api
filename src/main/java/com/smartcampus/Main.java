@@ -15,6 +15,11 @@ public class Main {
         HttpServer server = GrizzlyHttpServerFactory
                 .createHttpServer(URI.create(BASE_URI), config);
 
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            server.shutdownNow();
+            System.out.println("Server stopped.");
+        }));
+
         System.out.println("Smart Campus API running at " + BASE_URI);
         System.out.println("Press CTRL+C to stop...");
         System.out.println("");
