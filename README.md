@@ -10,6 +10,7 @@ A RESTful Smart Campus API built with JAX-RS (Jersey) for managing university ro
 - **Student ID:** w2120151 / 20240906
 - **Module:** 5COSC022W — Client-Server Architectures
 - **University:** University of Westminster
+- **Report:** [View Full Report (PDF)](docs/)
 
 ### What It Does
 
