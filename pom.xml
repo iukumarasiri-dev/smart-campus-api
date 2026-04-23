@@ -47,6 +47,11 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.15.2</version>
         </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.module</groupId>
+            <artifactId>jackson-module-jaxb-annotations</artifactId>
+            <version>2.15.2</version>
+        </dependency>
 
         <!-- Servlet API (provided by Tomcat at runtime) -->
         <dependency>
@@ -85,6 +90,16 @@
                             <cargo.servlet.port>8080</cargo.servlet.port>
                         </properties>
                     </configuration>
+                    <deployables>
+                        <deployable>
+                            <groupId>com.smartcampus</groupId>
+                            <artifactId>smart-campus-api</artifactId>
+                            <type>war</type>
+                            <properties>
+                                <context>/</context>
+                            </properties>
+                        </deployable>
+                    </deployables>
                 </configuration>
             </plugin>
         </plugins>
