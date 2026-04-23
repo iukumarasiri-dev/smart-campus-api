@@ -8,18 +8,10 @@ A RESTful Smart Campus API built with JAX-RS (Jersey) for managing university ro
 
 - **Author:** Isuru Udara
 - **Student ID:** w2120151 / 20240906
-- **Module:** 5COSC022W — Client-Server Architectures
+- **Module:** 5COSC022C — Client-Server Architectures
 - **University:** University of Westminster
 - **Report:** [View Full Report (PDF)](docs/)
 
-### What It Does
-
-The API allows clients to:
-
-- Create, retrieve, and delete university rooms
-- Create, retrieve, filter, and delete sensors assigned to rooms
-- Add and retrieve sensor readings for individual sensors
-- Discover all available API endpoints via a discovery endpoint
 
 ### Technology Stack
 
