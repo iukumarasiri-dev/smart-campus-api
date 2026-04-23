@@ -19,9 +19,20 @@ public class GlobalExceptionMapper implements ExceptionMapper<Throwable> {
     @Override
     public Response toResponse(Throwable exception) {
 
-        // Let Jersey's own exceptions (404, 405, etc.) pass through unchanged
+        // Handle Jersey's own exceptions (404, 405, etc.) — return JSON with correct status
         if (exception instanceof WebApplicationException) {
-            return ((WebApplicationException) exception).getResponse();
+            int status = ((WebApplicationException) exception).getResponse().getStatus();
+            String reason = Response.Status.fromStatusCode(status) != null
+                    ? Response.Status.fromStatusCode(status).getReasonPhrase()
+                    : "Error";
+            Map<String, String> error = new HashMap<>();
+            error.put("error", reason);
+            error.put("message", "The requested resource was not found.");
+            error.put("status", String.valueOf(status));
+            return Response.status(status)
+                    .entity(error)
+                    .type(MediaType.APPLICATION_JSON)
+                    .build();
         }
 
         // Log the full error on server side only
