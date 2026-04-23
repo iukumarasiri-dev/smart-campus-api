@@ -390,12 +390,12 @@ This ensures the complete stack trace is recorded securely in the server logs fo
 
 **Question:** Why is it advantageous to use JAX-RS filters for cross-cutting concerns like logging, rather than manually inserting `Logger.info()` statements inside every single resource method?
 
-| Problem | Consequence of Manual Logging |
-|---|---|
-| **Code Duplication** | The same log format must be copy-pasted into dozens of methods. Changing the format requires editing every single file. |
-| **Human Error** | A developer adding a new endpoint can easily forget to include the logging statement. |
-| **Missed Logs** | If a request is rejected before reaching a resource method (e.g., a `415 Unsupported Media Type` error), no manual log will ever fire. |
-| **Mixed Concerns** | Business logic (e.g., creating a room) becomes cluttered with infrastructure concerns (e.g., logging). |
+| Problem                   | Consequence of Manual Logging                                                                                                          |
+|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| **Code Duplication**      | The same log format must be copy-pasted    into   dozens of methods. Changing the format requires editing every single file.           |
+| **Human Error**           | A developer adding a new endpoint can easily forget to include the logging statement.                                                  |
+| **Missed Logs**           | If a request is rejected before reaching a resource method (e.g., a `415 Unsupported Media Type` error), no manual log will ever fire. |
+| **Mixed Concerns**        | Business logic (e.g., creating a room) becomes cluttered with infrastructure concerns (e.g., logging).                                 |
 
 The `LoggingFilter` class solves all of these problems by implementing both `ContainerRequestFilter` and `ContainerResponseFilter`, running automatically at the framework level for every incoming request and every outgoing response.
 
