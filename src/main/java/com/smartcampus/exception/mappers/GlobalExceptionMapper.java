@@ -1,5 +1,6 @@
 package com.smartcampus.exception.mappers;
 
+import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
@@ -17,6 +18,11 @@ public class GlobalExceptionMapper implements ExceptionMapper<Throwable> {
 
     @Override
     public Response toResponse(Throwable exception) {
+
+        // Let Jersey's own exceptions (404, 405, etc.) pass through unchanged
+        if (exception instanceof WebApplicationException) {
+            return ((WebApplicationException) exception).getResponse();
+        }
 
         // Log the full error on server side only
         LOGGER.severe("Unexpected error occurred: " + exception.getMessage());
